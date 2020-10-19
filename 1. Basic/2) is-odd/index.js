@@ -1,10 +1,7 @@
 function isOdd(a) {
   //Напиши свой код здесь;
 
-  if (a % 2 === 0) {
-    return true;
-  }
-  return false;
+  return a % 2 === 0 
 }
 
 window.isOdd = isOdd;
