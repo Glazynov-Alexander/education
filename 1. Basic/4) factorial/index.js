@@ -9,7 +9,7 @@ function factorial(n) {
       for (let j = 1; j <= n; j++) {
         s = s * j ;
       }
-      return s
+      return s;
     }
   }
 }
