@@ -16,7 +16,7 @@ function basicCalc(operation, a, b) {
       return a / b
     }
 
-    default : return console.log('null');
+    default : return 'null'
   }
 
 }
