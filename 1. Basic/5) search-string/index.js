@@ -9,27 +9,20 @@ function searchString(obj) {
     return str;
   } 
     str = "?";
-    Object.keys(obj).map((e) => {
+    Object.keys(obj).forEach((e) => {
       switch (typeof obj[e]) {
-        case "number": {
-           sumStr(e);
-           break
+        case "number" : {
+          return sumStr(e)  ;
+       }
+        case "boolean" : {
+          return sumStr(e);
+          
         }
-        case "boolean": {
-           sumStr(e);
-           break
-        }
-        case "string": {
-          obj[e] === "" ? delete obj[e] : sumStr(e);
-        }
-        case "undefined": {
-          deleteObj(e);
+        case  "string" || "undefined" && "object"   : {
+          obj[e] === ''  ? deleteObj(e) : sumStr(e) 
           break
         }
-        case "object": {
-          deleteObj(e);
-          break
-        }
+       
 
         default:
           return str;
