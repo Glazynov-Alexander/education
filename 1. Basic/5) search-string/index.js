@@ -1,35 +1,21 @@
 function searchString(obj) {
   // Напиши свой код здесь
-  let length = Object.keys(obj).length
+  let length = Object.keys(obj).length;
   let str = "";
   let sumStr = (key) => (str += key + "=" + obj[key] + "&");
-  let deleteObj = (key) => (delete obj[key]);
+  let deleteObj = (key) => delete obj[key];
 
-  if (length === 0) {
-    return str;
+  if(!Object.keys(obj).length) {
+    return ''
   } 
-    str = "?";
-    Object.keys(obj).forEach((e) => {
-      switch (typeof obj[e]) {
-        case "number" : {
-          return sumStr(e)  ;
-       }
-        case "boolean" : {
-          return sumStr(e);
-          
-        }
-        case  "string" || "undefined" && "object"   : {
-          obj[e] === ''  ? deleteObj(e) : sumStr(e) 
-          break
-        }
-       
-
-        default:
-          return str;
-      }
-    });
-  
-  return str.slice(-1) === "&" ? str.slice(0, -1) : str;
+  let v = Object.keys(obj).reduce((a, key) => {
+    
+    if (![undefined, null, ""].includes(obj[key])) {
+       a.push(key + "=" + obj[key] )
+    }
+    return a ;
+  }, []).join('&')
+  return "?" + v
 }
 
 window.searchString = searchString;

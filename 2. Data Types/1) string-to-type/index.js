@@ -24,7 +24,6 @@ function stringToType(str) {
   
   
 };
-console.log(isNaN("2"));
 
 window.stringToType = stringToType;
 
