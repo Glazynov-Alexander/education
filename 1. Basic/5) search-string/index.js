@@ -12,15 +12,15 @@ function searchString(obj) {
     Object.keys(obj).map((e) => {
       switch (typeof obj[e]) {
         case "number": {
-           sumStr(e, obj[e]);
+           sumStr(e);
            break
         }
         case "boolean": {
-           sumStr(e, obj[e]);
+           sumStr(e);
            break
         }
         case "string": {
-          obj[e] === "" ? delete obj[e] : sumStr(e, obj[e]);
+          obj[e] === "" ? delete obj[e] : sumStr(e);
         }
         case "undefined": {
           deleteObj(e);
