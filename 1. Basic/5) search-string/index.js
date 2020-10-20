@@ -1,35 +1,42 @@
 function searchString(obj) {
   // Напиши свой код здесь
+  let length = Object.keys(obj).length
+  let str = "";
+  let sumStr = (key) => (str += key + "=" + obj[key] + "&");
+  let deleteObj = (key) => (delete obj[key]);
 
-  let str = `?`;
+  if (length === 0) {
+    return str;
+  } 
+    str = "?";
+    Object.keys(obj).map((e) => {
+      switch (typeof obj[e]) {
+        case "number": {
+           sumStr(e, obj[e]);
+           break
+        }
+        case "boolean": {
+           sumStr(e, obj[e]);
+           break
+        }
+        case "string": {
+          obj[e] === "" ? delete obj[e] : sumStr(e, obj[e]);
+        }
+        case "undefined": {
+          deleteObj(e);
+          break
+        }
+        case "object": {
+          deleteObj(e);
+          break
+        }
 
-  Object.keys(obj).map((e) => {
-
-    if (typeof obj[e] === "number") {
-      obj[e] === 0 ? str += e + "=" + obj[e] :
-      str += `` + e + "=" + obj[e] + "&";
-    } 
-    else if (obj[e] === "") {
-       delete obj[e];
-    }
-    
-    else if (typeof obj[e] === "string") {
-      str += e + "=" + obj[e] ;
-    } 
-    
-    else if (obj[e] === "null") {
-      str += e + "=" + obj[e] + "&";
-    } 
-    
-    else if (obj[e] === "undefined") {
-      str += e + "=" + obj[e] + "&";
-    } 
-    else if (obj[e] === false) {
-      str +="&" + e + "=" + obj[e] + "&";
-    } 
-    
-  });
-  return Object.keys(obj).length == 0 ? '' : str;
+        default:
+          return str;
+      }
+    });
+  
+  return str.slice(-1) === "&" ? str.slice(0, -1) : str;
 }
 
 window.searchString = searchString;
