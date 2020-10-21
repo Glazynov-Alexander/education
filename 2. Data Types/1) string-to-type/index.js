@@ -1,29 +1,32 @@
-function stringToType(str) {
+function stringToType(str ) {
   // Напиши свой код здесь
+  switch (str) {
+    case "null": {
+      return null;
+    }
+    case "undefined": {
+      return undefined;
+    }
+    case "": {
+      return str;
+    }
+    case "true": {
+      return true;
+    }
+    case "false": {
+      return false;
+    }
+    case str: {
+      if (!isNaN(str)) {
+        return Number(str);
+      }return str
+       
+    }
 
-  if (str === "undefined") {
-    return undefined;
-  } else if (str === "null") {
-    return null;
-  } else if(str === '') {
-    return ''
-  } else if(typeof(Number(str)) === "number") 
-  {
-    if(!isNaN(str) ) {
-      return Number(str)  
-    }
-    else if(str === "false" ) {
-      return false
-    } else if(str === "true") {
-      return true
-    }
-    else {
-      return str
-    }
-  } 
-  
-  
-};
+    default:
+      return str;
+  }
+}
 
 window.stringToType = stringToType;
 
