@@ -5,7 +5,7 @@ function asyncSum(a, b) {
       typeof a && typeof b === "number" ? resolve(a + b) : reject("error");
     }, 800);
   });
-  return asd.then((value) => value);
+  return asd;
 }
 
 window.asyncSum = asyncSum;
