@@ -10,6 +10,17 @@
 
 function baseExpect(a) {
   // Напиши свой код здесь
+ let toBe = (b) => {
+  if(a === b) {
+    return true
+  }  return false
+} 
+ toBe.not = (c) => {
+     if( a !== c) {
+       return true
+     } return false
+}
+return {toBe}
 }
 
 window.baseExpect = baseExpect;
