@@ -24,6 +24,7 @@ class Stack {
     this.size = this.mass.length
   }
   push  (y)  {
+    
     if(this.mass.length === 0 ) {
       this.mass.push(y)
       this.size += 1
@@ -41,9 +42,7 @@ class Stack {
     } throw "error"
   }
   isEmpty (y) {
-    if(this.mass.length === 0 ) {
-      return true
-    } return false
+    return this.mass.length === 0 
   }
   print  (y)  {
     return`[${this.mass}]`
