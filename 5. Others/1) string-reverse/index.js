@@ -6,4 +6,7 @@
   'bob'.reverse() === 'bob';
   'abc123'.reverse() === '321cba';
  */
-let 
+function reverse () {
+  return this.split("").reverse().join("")
+}
+String.prototype.reverse = reverse 
