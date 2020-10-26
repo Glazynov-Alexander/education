@@ -14,6 +14,10 @@
 
 function isValidEmail(email) {
   // Напиши свой код здесь
+  if (email.split("@").pop() === "gmail.com") {
+    return true;
+  }
+  return false;
 }
 
 window.isValidEmail = isValidEmail;
