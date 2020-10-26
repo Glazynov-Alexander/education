@@ -11,10 +11,10 @@
 function baseExpect(a) {
   // Напиши свой код здесь
   let toBe = (b) => {
-    a === b ? true : false;
+    return a === b;
   };
   toBe.not = (c) => {
-    a !== c ? true : false;
+    return a !== c;
   };
   return { toBe };
 }
