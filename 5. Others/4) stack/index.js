@@ -19,6 +19,35 @@
 
 class Stack {
   // Напиши свой код здесь
+  constructor(){
+    this.mass = []
+    this.size = this.mass.length
+  }
+  push  (y)  {
+    if(this.mass.length === 0 ) {
+      this.mass.push(y)
+      this.size += 1
+      return this
+    }
+    this.mass.push(" " +y)
+    this.size += 1
+    return this
+  }
+  pop ()  {
+    if(this.mass.length > 0 ) {
+      this.mass.pop()
+      this.size -= 1
+      return this
+    } throw "error"
+  }
+  isEmpty (y) {
+    if(this.mass.length === 0 ) {
+      return true
+    } return false
+  }
+  print  (y)  {
+    return`[${this.mass}]`
+  }     
 }
 
 window.Stack = Stack;
