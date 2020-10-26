@@ -10,29 +10,29 @@
 class TokenService {
   // Напиши свой код здесь
   constructor() {
-    this.f = null;
-    this.mass = [];
+    this.token = null;
+    this.changeToken = [];
   }
 
   subscribe(newToken) {
-    this.mass.push(newToken);
+    this.changeToken.push(newToken);
   }
 
   setToken(token) {
-    this.mass.forEach((e) => {
-      e(token);
+    this.changeToken.forEach((elem) => {
+      elem(token);
     });
-    this.f = token;
+    this.token = token;
   }
 
   removeToken() {
-    this.mass.forEach((e) => {
-      e(this.f);
+    this.changeToken.forEach((elem) => {
+      elem(this.token);
     });
   }
 
   getToken() {
-    return this.f;
+    return this.token;
   }
 }
 
